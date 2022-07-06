@@ -1,0 +1,137 @@
+<body style="background-color: #424242FF">
+  <div>
+    <!--  BARRA DE MENU -->
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()" color="primary">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+
+    <!--  MENU OPÇÕES-->
+    <mat-sidenav-container fxFlexFill class="example-container">
+      <mat-sidenav  #sidenav fxLayout="column"   opened="false" fxHide.gt-sm="false" class="menu">
+        <div fxLayout="column">
+          <div>
+            <a  mat-button [matMenuTriggerFor]="cliente">Clientes
+              <mat-menu #cliente="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="opcoes">Clientes</button>
+              </mat-menu>
+              <mat-menu #opcoes="matMenu">
+                <button mat-menu-item  routerLink="/cliente">Listar Cliente</button>
+                <button mat-menu-item  routerLink="/cadastrarCliente">Cadastrar Cliente</button>
+              </mat-menu>
+            </a>
+          </div>
+
+          <div>
+            <a  mat-button [matMenuTriggerFor]="veiculos">Veiculos
+              <mat-menu #veiculos="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="opcoes1">Veiculos</button>
+              </mat-menu>
+              <mat-menu #opcoes1="matMenu">
+                <button mat-menu-item  routerLink="/veiculo">Listar Veiculos</button>
+                <button mat-menu-item  routerLink="/cadastrarVeiculo">Cadastrar Veiculos</button>
+              </mat-menu>
+            </a>
+          </div>
+
+          <div>
+            <a  mat-button [matMenuTriggerFor]="contratos">Contratos
+              <mat-menu #contratos="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="opcoes3">Contratos</button>
+              </mat-menu>
+              <mat-menu #opcoes3="matMenu">
+                <button mat-menu-item  routerLink="/contrato">Listar Contratos</button>
+                <button mat-menu-item  routerLink="/cadastrarContrato">Cadastrar Contratar</button>
+              </mat-menu>
+            </a>
+          </div>
+
+        </div>
+      </mat-sidenav>
+
+      <!--    CORPO -->
+      <mat-sidenav-content fxFlexFill>
+
+        <div>
+          <img class="d-block w-100" src="../../../assets/image/slider2.2.png" alt="First slide" style="width: 100%; max-height: 550px;" >
+        </div>
+
+  <!--      Dicas   -->
+        <div fxLayout="row" fxLayoutAlign="space-around center" style="flex-direction: row; box-sizing: border-box; padding-top: 80px; padding-bottom: 50px" >
+          <mat-card class="example-card">
+            <mat-card-content>
+              <mat-card-subtitle> IDADE </mat-card-subtitle>
+              <p >
+                O responsável pela locação deve ter 21 anos completos e possuir CNH </p>
+              <br>
+              <br>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="example-card">
+            <mat-card-content>
+              <mat-card-subtitle>DOCUMENTOS ORIGINAIS</mat-card-subtitle>
+              <p > Apresentar documentação com foto, ideal ter em mãos</p>
+              <br>
+              <br>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="example-card">
+            <mat-card-content>
+              <mat-card-subtitle>CPF SEM RESTRIÇÃO</mat-card-subtitle>
+              <p id="a">
+                As empresas de locação consultam o CPF do locatário, e não liberam o carro em caso de apontamentos.</p>
+              <br>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="example-card">
+            <mat-card-content>
+              <mat-card-subtitle> CLIENTES ESTRANGEIROS </mat-card-subtitle>
+              <p id="aa">
+                Estrangeiros devem apresentar o passaporte e a carteira de motorista do país de origem.</p>
+              <br>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+  <!--      Cadastro -->
+        <div class="card1">
+          <mat-card id="aaa" style="justify-content: start">
+            <mat-card-title-group>
+              <mat-card-title>Nós da Loca Fácil trabalhamos para garantir seu conforto. Cadastre-se agora com ofertas imperdiveis !</mat-card-title>
+              <!--     <mat-card-subtitle>Extra large</mat-card-subtitle>-->
+              <mat-card-subtitle>
+                <button mat-button-item id="color" [routerLink]="['/cadastrarCliente']">Clique aqui e cadastre-se</button>
+              </mat-card-subtitle>
+              <img mat-card-xl-image src="assets/image/banner2.png" width="200px" >
+
+            </mat-card-title-group>
+          </mat-card>
+        </div>
+
+  <!--      Comentarios -->
+        <div>
+          <h1 div id="comentarios"> Ficamos muito feliz com os feedbacks recebidos de nossa comunidade </h1>
+          <img class="d-block w-100" src="../../../assets/image/comentarios.png" alt="First slide" style="width: 800px;" >
+        </div>
+
+        <!-- fotter -->
+        <footer class="rodape-prin">
+          <span>&copy; SeguroFacil 2017</span>
+          <ul class="icones-sociais">
+            <li><a href="https://www.facebook.com/" target="_blank"><img src="https://icons.iconarchive.com/icons/sicons/basic-round-social/32/facebook-icon.png" alt="Icone do facebook"></a></li>
+            <li><a href="https://www.instagram.com/" target="_blank"><img src="https://icons.iconarchive.com/icons/martz90/circle/32/instagram-icon.png" alt="Icone do instagram"></a></li>
+            <li><a href="https://twitter.com/" target="_blank"><img src="https://icons.iconarchive.com/icons/sicons/basic-round-social/32/twitter-icon.png" alt="Icone do twiter"></a></li>
+          </ul>
+
+        </footer>
+
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</body>
+

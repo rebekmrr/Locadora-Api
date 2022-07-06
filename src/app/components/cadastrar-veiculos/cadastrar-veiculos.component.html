@@ -1,0 +1,111 @@
+<body style="background-color:#f2e9e1 ">
+<div>
+  <!--  BARRA DE MENU -->
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <!--  MENU OPÇÕES-->
+  <mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav  #sidenav fxLayout="column"   opened="false" fxHide.gt-sm="false" class="menu">
+      <div fxLayout="column">
+        <div>
+          <a mat-button routerLink="/home">Home</a>
+        </div>
+
+        <div>
+          <a  mat-button [matMenuTriggerFor]="clientes">Clientes
+            <mat-menu #clientes="matMenu">
+              <button mat-menu-item [matMenuTriggerFor]="opcoes">Clientes</button>
+            </mat-menu>
+            <mat-menu #opcoes="matMenu">
+              <button mat-menu-item  routerLink="/cliente">Listar Cliente</button>
+              <button mat-menu-item  routerLink="/cadastrarCliente">Cadastrar Cliente</button>
+            </mat-menu>
+          </a>
+        </div>
+
+
+        <div>
+          <a  mat-button [matMenuTriggerFor]="veiculos">Veiculos
+            <mat-menu #veiculos="matMenu">
+              <button mat-menu-item [matMenuTriggerFor]="opcoes1">Veiculos</button>
+            </mat-menu>
+            <mat-menu #opcoes1="matMenu">
+              <button mat-menu-item  routerLink="/veiculo">Listar Veiculos</button>
+              <button mat-menu-item  routerLink="/cadastrarVeiculo">Cadastrar Veiculos</button>
+            </mat-menu>
+          </a>
+        </div>
+
+        <div>
+          <a  mat-button [matMenuTriggerFor]="contratos">Contratos
+            <mat-menu #contratos="matMenu">
+              <button mat-menu-item [matMenuTriggerFor]="opcoes3">Contratos</button>
+            </mat-menu>
+            <mat-menu #opcoes3="matMenu">
+              <button mat-menu-item  routerLink="/contrato">Listar Contratos</button>
+              <button mat-menu-item  routerLink="/cadastrarContrato">Cadastrar Contratar</button>
+            </mat-menu>
+          </a>
+        </div>
+      </div>
+    </mat-sidenav>
+
+    <div id="main">
+      <mat-card class="example-card"    style="margin-top: 70px; ">
+        <h2 class="texto_azul titulo-login">FAÇA SEU CADASTRO</h2>
+
+        <!--Inicio do Form>-->
+        <mat-card-content >
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Fabricante</mat-label>
+              <input autocomplete="on" name="nome" [(ngModel)]="veiculo.fabricante" matInput placeholder="Digite o Fabricante">
+            </mat-form-field>
+
+            <!--Modelo-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Modelo</mat-label>
+              <input autocomplete="on" name="modelo" type="text"  [(ngModel)]="veiculo.modelo" matInput  placeholder="Digite o modelo"value="">
+            </mat-form-field>
+
+            <!--Ano-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Ano</mat-label>
+              <input autocomplete="on" name="ano" type="text"[(ngModel)]="veiculo.ano" matInput placeholder="Digite o ano" value="">
+            </mat-form-field>
+
+            <!--Motor-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Motor</mat-label>
+              <input autocomplete="on" name="motor" type="text" [(ngModel)]="veiculo.motor" matInput  placeholder="Digite o modelo"value="" >
+            </mat-form-field>
+
+            <!--Placa-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Placa</mat-label>
+              <input autocomplete="on" name="placa" type="text" [(ngModel)]="veiculo.placa" matInput  placeholder="Digite a placa"value="" >
+            </mat-form-field>
+
+            <!--Diaria-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Diaria</mat-label>
+              <input autocomplete="on" name="diaria" type="text" [(ngModel)]="veiculo.diaria" matInput  placeholder="Digite o valor da diaria"value="" >
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button class="button" mat-raised-button mat-icon-button (click)="inserirCliente()">
+            <mat-icon *ngIf="operacaoCadastro">person_add</mat-icon>
+            <mat-icon *ngIf="!operacaoCadastro">edit</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-sidenav-container>
+</div>
+</body>

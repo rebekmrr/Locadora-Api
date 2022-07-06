@@ -1,0 +1,98 @@
+<body style="background-color: rgba(138,43,226,0.27)">
+<div>
+  <!--  BARRA DE MENU -->
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <!--  MENU OPÇÕES-->
+  <mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav  #sidenav fxLayout="column"   opened="false" fxHide.gt-sm="false" class="menu">
+      <div fxLayout="column">
+        <div>
+          <a mat-button routerLink="/home">Home</a>
+        </div>
+
+        <div>
+          <a  mat-button [matMenuTriggerFor]="clientes">Clientes
+            <mat-menu #clientes="matMenu">
+              <button mat-menu-item [matMenuTriggerFor]="opcoes">Clientes</button>
+            </mat-menu>
+            <mat-menu #opcoes="matMenu">
+              <button mat-menu-item  routerLink="/cliente">Listar Cliente</button>
+              <button mat-menu-item  routerLink="/cadastrarCliente">Cadastrar Cliente</button>
+            </mat-menu>
+          </a>
+        </div>
+
+        <div>
+          <a  mat-button [matMenuTriggerFor]="veiculos">Veiculos
+            <mat-menu #veiculos="matMenu">
+              <button mat-menu-item [matMenuTriggerFor]="opcoes1">Veiculos</button>
+            </mat-menu>
+            <mat-menu #opcoes1="matMenu">
+              <button mat-menu-item  routerLink="/veiculo">Listar Veiculos</button>
+              <button mat-menu-item  routerLink="/cadastrarVeiculo">Cadastrar Veiculos</button>
+            </mat-menu>
+          </a>
+        </div>
+
+        <div>
+          <a  mat-button [matMenuTriggerFor]="contratos">Contratos
+            <mat-menu #contratos="matMenu">
+              <button mat-menu-item [matMenuTriggerFor]="opcoes3">Contratos</button>
+            </mat-menu>
+            <mat-menu #opcoes3="matMenu">
+              <button mat-menu-item  routerLink="/contrato">Listar Contratos</button>
+              <button mat-menu-item  routerLink="/cadastrarContrato">Cadastrar Contratar</button>
+            </mat-menu>
+          </a>
+        </div>
+      </div>
+    </mat-sidenav>
+
+    <div id="main">
+      <mat-card class="example-card"    style="margin-top: 85px;">
+        <h2 class="texto_azul titulo-login">FAÇA SEU CADASTRO</h2>
+
+        <!--Inicio do Form>-->
+        <mat-card-content >
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Nome</mat-label>
+              <input autocomplete="on" name="nome" [(ngModel)]="cliente.nome" matInput placeholder="digite deu nome">
+            </mat-form-field>
+
+            <!--Name-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">CNH</mat-label>
+              <input autocomplete="on" name="cnh" type="text"  [(ngModel)]="cliente.cnh" matInput  placeholder="Digite o seu CNH"value="">
+            </mat-form-field>
+
+            <!--Telefone-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Endereço</mat-label>
+              <input autocomplete="on" name="endereco" type="text"[(ngModel)]="cliente.endereco" matInput placeholder="Digite o seu endereço " value="">
+            </mat-form-field>
+
+            <!--assistencia_id_assistencia-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Telefone</mat-label>
+              <input autocomplete="on" name="telefone" type="text" [(ngModel)]="cliente.telefone" matInput  placeholder="Digite o seu numero de telefone"value="" >
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button class="button" mat-raised-button mat-icon-button (click)="inserirCliente()">
+            <mat-icon *ngIf="operacaoCadastro">person_add</mat-icon>
+            <mat-icon *ngIf="!operacaoCadastro">edit</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-sidenav-container>
+</div>
+</body>
