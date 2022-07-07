@@ -1,0 +1,72 @@
+<body style="background-color: #424242">
+<div>
+  <!--  BARRA DE MENU -->
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <!--  MENU OPÇÕES-->
+  <mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav  #sidenav fxLayout="column"   opened="false" fxHide.gt-sm="false" class="menu">
+      <div fxLayout="column">
+        <div>
+          <a mat-button routerLink="/home">Home</a>
+          <a mat-button routerLink="/assistencia">Assitencia</a>
+          <a mat-button routerLink="/fatura">Fatura</a>
+          <a mat-button routerLink="/portador">Portador</a>
+        </div>
+      </div>
+    </mat-sidenav>
+
+
+    <div id="mat-drawer-container" >
+      <mat-card class="example-card" >
+        <h2 class="texto_azul titulo-login">Portador</h2>
+
+        <!--Inicio do Form>-->
+        <mat-card-content >
+          <form class="example-form">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Nome</mat-label>
+              <input autocomplete="on" name="telefone" [(ngModel)]="portador.nome" matInput placeholder="digite o valor">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">CPF</mat-label>
+              <input autocomplete="on" name="telefone" [(ngModel)]="portador.cpf" matInput placeholder="digite o valor">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Telefone</mat-label>
+              <input autocomplete="on" name="telefone" [(ngModel)]="portador.telefone" matInput placeholder="digite o valor">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Assistencia_id</mat-label>
+              <input autocomplete="on" name="assistencia_id" [(ngModel)]="portador.idAssistencia" matInput placeholder="digite o valor">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_azul">Dia de faturamento</mat-label>
+              <input autocomplete="on" name="assistencia_id" [(ngModel)]="portador.diaFaturamento" matInput placeholder="digite o valor">
+            </mat-form-field>
+
+
+          </form>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-raised-button mat-icon-button color="blue" id="but" (click)="inserirPortador()">
+            <mat-icon >save</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-sidenav-container>
+</div>
+</body>

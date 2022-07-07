@@ -2,7 +2,6 @@
   font-size: 150%;
 }
 
-
 .mat-toolbar{
   height: 7vh;
 }
@@ -37,7 +36,10 @@ button{
   padding: 30px;
 
 }
+.mat-expansion-panel {
+  background-color: #cbe86b;
 
+}
 
 #duvida{
   color: #141e27;
@@ -48,7 +50,10 @@ button{
 .example-spacer {
   flex: 1 1 auto;
 }
-
+.mat-toolbar.mat-primary{
+  background: rgb(0 0 0 / 87%);
+  color: #cbe86b;
+}
 .mat-sidenav-content{
   font-size: 200%;
   text-align: center;
@@ -59,9 +64,6 @@ button{
 .geral{
   background: #141e27;
 }
-.menu {
-  width: 130px;
-  overflow: auto;}
 
 .menuComponent{
   background-color: #141e27;
@@ -70,6 +72,10 @@ button{
   color: white;
 }
 
+
+button{
+  width: 10vw;
+}
 
 
 #main {
@@ -84,6 +90,11 @@ button{
   height: 15vh;
   color: white;
 }
+
+button {
+  width: 10vw;
+}
+
 
 #main {
   background-color: #141e27;
@@ -133,7 +144,7 @@ h2{
 #color {
   //background: rgba(255, 255, 255, 0.63);
   background: rgb(66, 66, 66);
-  border: 1px solid rgba(65,20,128,1);
+  border: 1px solid rgba(203,232,107,1);
   margin: 30px 0 0 0;
   border-radius: 4px;
   height: 45px;
@@ -227,7 +238,3 @@ h2{
   width: 40px;
   height: inherit; }
 
-.mat-toolbar.mat-primary {
-  background: black;
-  color: #fff;
-}

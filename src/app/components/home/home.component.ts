@@ -1,5 +1,8 @@
-import {Component, OnInit, Output, EventEmitter, ViewChild} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 
+
+class EventEmitter {
+}
 
 @Component({
   selector: 'app-home',
@@ -7,10 +10,19 @@ import {Component, OnInit, Output, EventEmitter, ViewChild} from '@angular/core'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  @Output() sidenavClose = new EventEmitter();
+  panelOpenState = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+
   }
+
+  // public onSidenavClose = () => {
+  //   this.sidenavClose.emit();
+  //
+  // }
 
 }
